@@ -63,3 +63,17 @@ dependencies {
     api(libs.glide)
     annotationProcessor(libs.glide.compiler)
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.saroj"
+                artifactId = "reader"
+                version = "0.1.0"
+            }
+        }
+    }
+}
